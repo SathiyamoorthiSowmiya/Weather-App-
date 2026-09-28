@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.14);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --text-color: #fff;
+    --text-muted: rgba(255, 255, 255, 0.75);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    background-size: 200% 200%;
+    animation: gradientShift 18s ease infinite;
+    color: var(--text-color);
+    transition: background 0.6s ease;
+}
+
+body.clear     { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+body.cloudy    { background: linear-gradient(135deg, #757f9a, #d7dde8); }
+body.rain      { background: linear-gradient(135deg, #3a6073, #16222a); }
+body.snow      { background: linear-gradient(135deg, #83a4d4, #b6fbff); }
+body.storm     { background: linear-gradient(135deg, #232526, #414345); }
+body.night     { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.app {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    min-height: 100vh;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.unit-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.unit-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar button {
+    width: 3rem;
+    border-radius: 1rem;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.search-bar button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    min-height: 1.5rem;
+}
+
+.chip {
+    padding: 0.4rem 0.9rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--glass-border);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.chip:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.status {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.status.error {
+    background: rgba(255, 90, 90, 0.25);
+}
+
+.empty-state {
+    text-align: center;
+    margin-top: 4rem;
+    opacity: 0.85;
+}
+
+.empty-state span {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    max-width: 280px;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.current-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    padding: 1.8rem;
+    backdrop-filter: blur(14px);
+    margin-bottom: 2rem;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.2);
+}
+
+.current-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.city-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.date-time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.icon-temp {
+    text-align: right;
+}
+
+.weather-icon {
+    font-size: 2.4rem;
+    display: block;
+}
+
+.temp {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.description {
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.feels-like {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+}
+
+.detail {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 0.7rem 0.4rem;
+    text-align: center;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.forecast h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.forecast-list {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.forecast-day {
+    flex: 0 0 auto;
+    width: 90px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 1rem 0.6rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.forecast-day .day-name {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.forecast-day .day-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.forecast-day .day-temps {
+    font-size: 0.85rem;
+}
+
+.forecast-day .day-temps .max {
+    font-weight: 600;
+}
+
+.forecast-day .day-temps .min {
+    color: var(--text-muted);
+}
+
+@media (max-width: 420px) {
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
